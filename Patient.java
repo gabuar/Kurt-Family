@@ -1,6 +1,7 @@
 import java.time.*;
 
 public class Patient {
+
     public enum Severity {
         VERY_MINOR(1),
         MILD(2),
@@ -41,12 +42,7 @@ public class Patient {
 
     @Override
     public String toString() {
-        return String.format("%s (Age %d, Severity %d - %s, Case: %s, Arrival: %s)",
-                name,
-                age,
-                severity.getLevel(),
-                severity.name(),
-                caseDescription,
-                arrivalTime.toString());
+        return String.format("%s (Age %d, Sev %d - %s, Case: %s, Arrived: %s)",
+                name, age, severity.getLevel(), severity.name(), caseDescription, arrivalTime.toString());
     }
 }
