@@ -5,9 +5,9 @@ public class TriageQueue {
     private PriorityQueue<Patient> queue;
 
     public TriageQueue() {
-        // Higher severity first, then earlier arrival
         queue = new PriorityQueue<>(Comparator
-                .comparingInt((Patient p) -> -p.getSeverity().getLevel())
+                .comparingInt((Patient p) -> p.getSeverity().getLevel())
+                .reversed()
                 .thenComparing(Patient::getArrivalTime));
     }
 
@@ -15,7 +15,7 @@ public class TriageQueue {
         queue.offer(patient);
     }
 
-    public Patient nextPatient() {
+    public Patient pollPatient() {
         return queue.poll();
     }
 
@@ -23,16 +23,7 @@ public class TriageQueue {
         return queue.isEmpty();
     }
 
-    public int size() {
-        return queue.size();
-    }
-
     public PriorityQueue<Patient> getQueue() {
         return queue;
-    }
-
-    @Override
-    public String toString() {
-        return queue.toString();
     }
 }
