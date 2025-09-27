@@ -2,14 +2,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.FileWriter;
 import java.time.LocalDateTime;
-import java.time.ZoneId; // Added for timezone
-import java.time.ZonedDateTime; // Added for timezone
+import java.time.ZoneId;
+import java.time.ZonedDateTime; 
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;
 import javax.swing.*;
-import javax.swing.Timer; // Added for padding
-import javax.swing.border.EmptyBorder; // Added for borders
+import javax.swing.Timer;
+import javax.swing.border.EmptyBorder; 
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -1115,8 +1115,6 @@ public class HospitalGUI extends JFrame implements LogListener {
 
     @Override
     public void onLog(String message){
-        // Logs were removed: when the system emits events, just refresh visible UI so
-        // Reports/Records and tables stay in sync. Keep this lightweight and thread-safe.
         SwingUtilities.invokeLater(() -> refreshAll());
     }
 
@@ -1124,3 +1122,4 @@ public class HospitalGUI extends JFrame implements LogListener {
         SwingUtilities.invokeLater(() -> new HospitalGUI());
     }
 }
+
